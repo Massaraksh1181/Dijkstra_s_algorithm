@@ -1,0 +1,15 @@
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\Dijkstra's_algorithm.exe
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\Dijkstra's_algorithm.deps.json
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\Dijkstra's_algorithm.runtimeconfig.json
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\Dijkstra's_algorithm.runtimeconfig.dev.json
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\Dijkstra's_algorithm.dll
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\Dijkstra's_algorithm.pdb
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.csprojAssemblyReference.cache
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.AssemblyInfoInputs.cache
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.AssemblyInfo.cs
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.csproj.CoreCompileInputs.cache
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.dll
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.pdb
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.genruntimeconfig.cache
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+C:\Users\Massaracsh\source\repos\Dijkstra's_algorithm\Dijkstra's_algorithm\obj\Debug\netcoreapp3.1\Dijkstra's_algorithm.csproj.CopyComplete

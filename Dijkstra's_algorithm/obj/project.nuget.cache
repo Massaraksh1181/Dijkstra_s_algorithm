@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "DmudSR30KZnK8WC82QjUqCzKZdWMopOlbTOeFr/YyC3YydUSE1RvR+4ia7IIONk/1AFj/Te9XxbufDVj8kcefw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Massaracsh\\source\\repos\\Dijkstra's_algorithm\\Dijkstra's_algorithm\\Dijkstra's_algorithm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Massaracsh\\.nuget\\packages\\system.io.packaging\\7.0.0\\system.io.packaging.7.0.0.nupkg.sha512",
+    "C:\\Users\\Massaracsh\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512"
+  ],
+  "logs": []
+}

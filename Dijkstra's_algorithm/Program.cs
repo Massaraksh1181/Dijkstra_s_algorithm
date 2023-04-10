@@ -8,123 +8,94 @@ namespace Dijkstra_s_algorithm
     {
         static void Main(string[] args)
         {
-            //Graph.lookUpTest(); 
-            Graph2.graphTest();
-        }
+            HashTables hashTables = new HashTables();
+            var myGraph = hashTables.graph;
 
-        void dictionatyKeyList() //реализация хэш-таблцы через словарь (строка, список) так что каждой строке может соответсовать несколько значений из списка
-        {
-            List < KeyValuePair<char, int>> values;
-            Dictionary<char, List<KeyValuePair<char, int>>> graph = new Dictionary<char, List<KeyValuePair<char, int>>>();
-            /*bool count = false;
+            hashTables.graphAdd(myGraph, 's', 'a', 6);
+            hashTables.graphAdd(myGraph, 's', 'b', 2);
+            hashTables.graphAdd(myGraph, 'b', 'a', 3);
+            hashTables.graphAdd(myGraph, 'b', 'f', 5);
+            hashTables.graphAdd(myGraph, 'a', 'f', 1);
 
-            while (count == false)
+            Console.WriteLine("Граф: откуда-куда-стоимость");
+            foreach (var ht in myGraph)
             {
-                Console.WriteLine("Введите из какой точки");
-                string temp = Console.ReadLine();
-                List<string> list;
-                if (!graph.TryGetValue(temp, out list))
-                {
-                    list = new List<string>();
-                    Console.WriteLine("Введите куда ведет ребро");
-                    list.Add(Console.ReadLine());
-                    graph.Add(temp, list);
-                }
-                else
-                {
-                    Console.WriteLine("Введите куда ведет ребро");
-                    list.Add(Console.ReadLine());
-                }
-                Console.WriteLine("Это последний элемент? (y/n)");
-                count = Console.ReadLine() == "y" ? true : false;
+                Console.WriteLine(ht);
             }
-            */
 
-            graph.Add('s', values= new List<KeyValuePair<char, int>>() { new KeyValuePair<char, int>('s', 2)} );
-
-            foreach (var dot in graph)
+            Console.WriteLine("Соседи точки b: куда-стоимость");
+            foreach (var ht in hashTables.neighborsNodes(myGraph, 'b'))
             {
-                Console.Write($"key: {dot.Key}  value:");
-                foreach (var dots in dot.Value)
-                {
-                    Console.Write(dots);
-                    Console.Write(" ");
-                }
-                Console.WriteLine();
+                Console.WriteLine(ht);
             }
-        }
 
-    }
-
-    class Graph2
-    {
-        public static void graphTest() // реализация хэш-таблицы через словарь (ключ-словарь, число) так что ключ ключ-словаря - начальная точка, значение ключ-словаря - конечная точка, значение словаря - длина
-        {      
-            Dictionary<string, string> keyDict = new Dictionary<string, string>(); 
-
-            Dictionary< KeyValuePair<char, char>, int> graph = new Dictionary<KeyValuePair<char, char>, int>();
-            graph.Add(new KeyValuePair<char, char>('s', 'a'), 6);
-            graph.Add(new KeyValuePair<char, char>('s', 'b'), 7);
-            graph.Add(new KeyValuePair<char, char>('s', 'c'), 8);
-
-            List<int> graphs = new List<int>();
-
-            graphs.AddRange( graph.Where(p => p.Key.Key == 's').Select(n => n.Value).DefaultIfEmpty());
-            //string result2 = myDict.Where(p => p.Key.Value == 'b').Select(p => p.Value).FirstOrDefault();
-
-            foreach (var packageGroup in graphs)
+            Console.WriteLine("Цены перехода: куда-стоимость");
+            foreach (var ht in hashTables.prices(myGraph))
             {
-                Console.WriteLine(packageGroup);            
+                Console.WriteLine(ht);
+            }
+
+            Console.WriteLine("Родители: узел-родитель");
+            foreach (var ht in hashTables.parents(myGraph))
+            {
+                Console.WriteLine(ht);
             }
         }
     }
 
-    class Graph // класс для реализации хэш-таблицы через лук-ап (строка, словарь) так что строка - начальная точка, ключ словаря - конечная точка, значение словаря - длина
+    class HashTables //класс для реализаци хэш-таблиц
     {
-        public Dictionary<char, string> graph ;
-        public char key;
+        public Dictionary<KeyValuePair<char, char>, int> graph = new Dictionary<KeyValuePair<char, char>, int>();
 
-        public static void lookUpTest() // реализация
+        public Dictionary<KeyValuePair<char, char>, int> graphAdd (Dictionary<KeyValuePair<char, char>, int> garph, char vertexFrom, char vertexTo, int price) // заполнение хэш-таблицы-графа
         {
-            List<Graph> graphs = new List<Graph> { new Graph { key =  '1', graph = new Dictionary<char, string>() { { '2', "66" },
-                                                                                                             { '3', "22" } } }/*,
-                                                   new Graph { key = 2, graph = new Dictionary<int, int>() { { 5, 77 },
-                                                                                                             { 6, 33 } } }*/
-                                                   };
-
-            Lookup<int, KeyValuePair<char, string>> lookup = (Lookup< int, KeyValuePair<char, string>>)graphs.ToLookup(key => key.key, val => val.graph);
-
-            foreach (var endVelue in lookup)
-            {
-                Console.WriteLine(endVelue.Key);
-                foreach (var str in endVelue)
-                    Console.WriteLine("    {0}", str);
-            }
-       
-           // string result = lookup.Where(p => p.Key == 0).Select(t => t.Value).SingleOrDefault().Where(p => p.Key == 'a').Select(p => p.Value).SingleOrDefault();
-
-            /* IEnumerable<Dictionary<char, string>> group = lookup['1'];
-
-             Console.WriteLine("\nEnd-value with key of '1':");
-             foreach (var str in group)
-                 Console.WriteLine(str);
-            */
+            graph.Add(new KeyValuePair<char, char>(vertexFrom, vertexTo), price);
+            return graph;
         }
 
-        static void simpleLookUpTest() // простой пример LookUp
+        public Dictionary<char, int> neighborsNodes(Dictionary<KeyValuePair<char, char>, int> graph, char vertexFrom) // полчуние хэш-таблицы соседей узла
         {
-            string[] names = { "Igor", "Anton", "Inna", "Anna", "Boris", "Berta" };
-            //var lookup = names.ToLookup(item => item[0]);
-            Lookup<char, string> lookup = (Lookup<char, string>)names.ToLookup(item => item[0]);
+            Dictionary<char, int> neighbor = new Dictionary<char, int>();
 
-            foreach (var group in lookup)
+            foreach (var node in graph)
+                if (node.Key.Key == vertexFrom)
+                neighbor.Add(node.Key.Value, node.Value);
+
+            return neighbor;
+        }
+
+        public Dictionary<char, int> prices (Dictionary<KeyValuePair<char, char>, int> graph) // получение хэш-таблицы стоимостей перехода в узел
+        {
+            Dictionary<char, int> price = new Dictionary<char, int>();
+            HashSet<char> knownValues = new HashSet<char>();
+
+            foreach (var node in graph)
             {
-                Console.WriteLine("group - {0}", group.Key);
-                foreach (var item in group)
+                if (knownValues.Add(node.Key.Value))
                 {
-                    Console.WriteLine("\t" + item);
+                    price.Add(node.Key.Value, node.Value);
+                }
+            } 
+            price['f'] = int.MaxValue;
+
+            return price;
+        }
+
+        public Dictionary<char, char> parents (Dictionary<KeyValuePair<char, char>, int> graph) // получение хэш-таблицы "узел-родитель"
+        {
+            Dictionary<char, char> parent = new Dictionary<char, char>();
+            HashSet<char> knownValues = new HashSet<char>();
+
+            foreach (var node in graph)
+            {
+                if (knownValues.Add(node.Key.Value))
+                {
+                    parent.Add(node.Key.Value, node.Key.Key);
                 }
             }
+            parent['f'] = '-';
+
+            return parent;
         }
     }
 
